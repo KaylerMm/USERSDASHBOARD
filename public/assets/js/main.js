@@ -23,3 +23,25 @@ window.onload = () => {
     document.body.classList.add('dark-mode');
   }
 }
+
+const konamiCode = [
+    "ArrowUp", "ArrowUp",
+    "ArrowDown", "ArrowDown",
+    "ArrowLeft", "ArrowRight",
+    "ArrowLeft", "ArrowRight",
+    "b", "a"
+];
+
+let input = [];
+
+window.addEventListener("keydown", (e) => {
+    input.push(e.key);
+    if (input.length > konamiCode.length) input.shift();
+
+    if (input.join("") === konamiCode.join("")) {
+    document.body.style.backgroundColor = "black";
+    document.body.style.color = "red";
+    alert("🕹️ Parabéns! Você desbloqueou o lado negro da Força.");
+    }
+});
+
