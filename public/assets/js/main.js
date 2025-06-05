@@ -7,3 +7,20 @@ document.addEventListener('DOMContentLoaded', () => {
         container.classList.toggle('list-view');
     });
 });
+
+const toggleBtn = document.getElementById('darkModeToggle');
+toggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  if(document.body.classList.contains('dark-mode')){
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
+});
+
+// Ao carregar a página
+window.onload = () => {
+  if(localStorage.getItem('theme') === 'dark'){
+    document.body.classList.add('dark-mode');
+  }
+}

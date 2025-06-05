@@ -1,9 +1,9 @@
 <div class="col-md-4">
-    <a href="{{ route('user.show', $index) }}" class="text-decoration-none text-dark">
-        <div class="card h-100">
+    <a href="{{ route('user.show', $index) }}">
+        <div class="card h-100 user-card">
             <div class="card-body d-flex align-items-center">
                 <img src="{{ $user['picture']['medium'] }}" class="rounded-circle me-3" alt="Foto">
-                <div>
+                <div class="user-card-text">
                     <h5 class="card-title mb-1">
                         {{ $user['name']['first'] }} {{ $user['name']['last'] }}
                     </h5>

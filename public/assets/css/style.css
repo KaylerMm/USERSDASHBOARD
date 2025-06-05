@@ -1,6 +1,18 @@
+:root {
+  --bg-color: #f1ededd5;
+  --text-color: #212529;
+  --card-bg: #f8f9fa;
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #eee;
+  --card-bg: #1e1e1e;
+}
+
 body {
-    background-color: #f8f9fa;
-    font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .card {
@@ -8,7 +20,7 @@ body {
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05);
     transition: transform 0.3s ease;
     border-radius: 1rem;
-    background: linear-gradient(145deg, #ffffff, #f1f1f1);
+    background-color: var(--card-bg);
 }
 
 .card:hover {
@@ -35,15 +47,28 @@ body {
 
 #user-avatar {
     margin-bottom: 1.5rem;
-    width: 200px;
-    height: 200px;
 }
 
 .user-details {
-    background-color: #f8f9fa;
+    background-color: var(--card-bg);
     border-radius: 8px;
     padding: 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+.detail-label {
+    font-weight: 600;
+    color: var(--text-color);
+    min-width: 140px;
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.detail-value {
+    color: var(--text-color);
+    flex-grow: 1;
+}
+
 
 .detail-item {
     display: flex;
@@ -58,19 +83,49 @@ body {
     border-bottom: none;
 }
 
-.detail-label {
-    font-weight: 600;
-    color: #495057;
-    min-width: 140px;
-    text-align: right;
-    padding-right: 1rem;
-}
-
-.detail-value {
-    color: #212529;
-    flex-grow: 1;
-}
-
 .object-fit-cover {
     object-fit: cover;
+}
+
+.form-check-label {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+body.dark-mode .form-check-label {
+  color: var(--text-color);
+}
+
+.form-check-input {
+  cursor: pointer;
+}
+
+.user-card {
+    background-color: var(--card-bg);
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.user-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+.user-card-text {
+    color: var(--text-color);
+}
+
+.user-card-text h5,
+.user-card-text p,
+.user-card-text small,
+.user-card-text i {
+    color: var(--text-color);
+    transition: color 0.3s ease;
 }
