@@ -26,7 +26,7 @@
 
     <div class="detail-item">
         <span class="detail-label">
-            <i class="bi bi-calendar-date me-2"></i>Data de nascimento:
+            <i class="bi bi-calendar-date me-2"></i>Nascimento:
         </span>
         <span class="detail-value">
             {{ \Carbon\Carbon::parse($user['dob']['date'])->format('d/m/Y') }} 
