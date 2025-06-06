@@ -20,25 +20,36 @@ class DashboardController extends Controller
 
     public function index(Request $request)
     {
-        if (
-            $request->isMethod('post') &&
-            $request->input(DashboardConstants::PARAM_RESET)
-        ) {
-            $this->userService->resetUsers();
-            return redirect()->route(DashboardConstants::ROUTE_DASHBOARD);
-        }
-
-        $users = $this->userService->getUsers();
-        $filteredUsers = $this->userFilter->apply($users, $request);
-
-        $countries = $this->userService->getAllCountries();
-
-        return view(DashboardConstants::VIEW_DASHBOARD, [
-            DashboardConstants::VAR_USERS => $filteredUsers,
-            DashboardConstants::VAR_COUNTRIES => $countries,
-            DashboardConstants::PARAM_SEARCH => $request->input(DashboardConstants::PARAM_SEARCH),
-            DashboardConstants::VAR_SELECTED_COUNTRY => $request->input(DashboardConstants::PARAM_COUNTRY),
-        ]);
+        try{
+            $request->validate([
+                DashboardConstants::PARAM_RESET => 'sometimes|boolean',
+                DashboardConstants::PARAM_SEARCH => 'nullable|string|max:255',
+                DashboardConstants::PARAM_COUNTRY => 'nullable|string|max:255',
+            ]);
+    
+            if (
+                $request->isMethod('post') &&
+                $request->input(DashboardConstants::PARAM_RESET)
+            ) {
+                $this->userService->resetUsers();
+                return redirect()->route(DashboardConstants::ROUTE_DASHBOARD);
+            }
+    
+            $users = $this->userService->getUsers();
+            $filteredUsers = $this->userFilter->apply($users, $request);
+    
+            $countries = $this->userService->getAllCountries();
+    
+            return view(DashboardConstants::VIEW_DASHBOARD, [
+                DashboardConstants::VAR_USERS => $filteredUsers,
+                DashboardConstants::VAR_COUNTRIES => $countries,
+                DashboardConstants::PARAM_SEARCH => $request->input(DashboardConstants::PARAM_SEARCH),
+                DashboardConstants::VAR_SELECTED_COUNTRY => $request->input(DashboardConstants::PARAM_COUNTRY),
+            ]);
+        } catch (\Exception $e) {
+        \Log::error('DashboardController@index error: ' . $e->getMessage());
+        abort(500, 'Erro interno ao carregar o dashboard.');
+    }
     }
 
     public function showUser($index)
