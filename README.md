@@ -58,7 +58,7 @@ docker compose exec app php artisan session:table
 docker compose exec app php artisan migrate
 ```
 
-7. Gere a chave da aplicação:
+6. Gere a chave da aplicação:
 
 ```bash
 docker exec -it app php artisan key:generate
