@@ -33,4 +33,7 @@
             ({{ $user['dob']['age'] }} anos)
         </span>
     </div>
+
+    @include('social.whatsapp-button', ['user' => $user])
+    @include('social.email-button', ['user' => $user])
 </div>

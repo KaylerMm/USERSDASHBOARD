@@ -24,7 +24,6 @@ body {
 }
 
 .card:hover {
-    transform: scale(1.03);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
 }
 
@@ -134,4 +133,13 @@ body.dark-mode .form-check-label {
   content: "";
   color: #6c63ff;
   cursor: pointer;
+}
+
+#gmail-button{
+    color: white;
+    background-color: #D62D20;
+}
+
+#gmail-button:hover {
+    background-color: #7e0b0bcc;
 }
