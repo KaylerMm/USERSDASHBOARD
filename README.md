@@ -51,13 +51,20 @@ docker-compose up -d --build
 docker exec -it app composer install
 ```
 
-5. Gere a chave da aplicação:
+5. Faça as migrações necessárias:
+
+```bash
+docker compose exec app php artisan session:table
+docker compose exec app php artisan migrate
+```
+
+7. Gere a chave da aplicação:
 
 ```bash
 docker exec -it app php artisan key:generate
 ```
 
-6. Acesse a aplicação na porta configurada:
+7. Acesse a aplicação na porta configurada:
 Ex:
 
 ```
