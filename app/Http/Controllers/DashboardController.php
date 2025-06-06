@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-namespace App\Http\Controllers;
-
 use App\Services\UserService;
 use App\Filters\UserFilter;
 use Illuminate\Http\Request;
