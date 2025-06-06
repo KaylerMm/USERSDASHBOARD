@@ -8,6 +8,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.querySelector('input[name="search"]');
+    const userCards = document.querySelectorAll('.user-card');
+
+    searchInput.addEventListener('input', () => {
+        const search = searchInput.value.toLowerCase();
+
+        userCards.forEach(card => {
+            const name = card.dataset.name;
+            const email = card.dataset.email;
+
+            if (name.includes(search) || email.includes(search)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+
 const toggleBtn = document.getElementById('darkModeToggle');
 toggleBtn.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
