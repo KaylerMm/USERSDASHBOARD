@@ -64,4 +64,3 @@ window.addEventListener("keydown", (e) => {
     alert("🕹️ Parabéns! Você desbloqueou o lado negro da Força.");
     }
 });
-

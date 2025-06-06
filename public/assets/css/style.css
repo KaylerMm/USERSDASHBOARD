@@ -1,3 +1,4 @@
+/* ================== VARIABLES ================== */
 :root {
   --bg-color: #f1ededd5;
   --text-color: #212529;
@@ -10,82 +11,105 @@ body.dark-mode {
   --card-bg: #1e1e1e;
 }
 
+body.dark-mode .h2 {
+  color: var(--text-color);
+}
+
+/* ================== BASE ELEMENTS ================== */
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
 }
 
-.card {
-    border: none;
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05);
-    transition: transform 0.3s ease;
-    border-radius: 1rem;
-    background-color: var(--card-bg);
+.object-fit-cover {
+  object-fit: cover;
 }
 
-.card:hover {
+/* ================== COMPONENTS: Cards ================== */
+.card, .user-card {
+  background-color: var(--card-bg);
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover{
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
 }
 
-.card-body {
-    padding: 1.2rem;
+.user-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
 }
 
+.card-body {
+  padding: 1.2rem;
+}
+
+/* ================== COMPONENTS: Buttons ================== */
 .btn-primary {
-    background-color: #6c63ff;
-    border: none;
+  background-color: #6c63ff;
+  border: none;
 }
 
 .btn-primary:hover {
-    background-color: #5848d1;
+  background-color: #5848d1;
 }
 
+#gmail-button {
+  color: white;
+  background-color: #D62D20;
+}
+
+#gmail-button:hover {
+  background-color: #7e0b0bcc;
+}
+
+/* ================== COMPONENTS: Navbar ================== */
 .navbar {
-    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
 }
 
+/* ================== COMPONENTS: User ================== */
 #user-avatar {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .user-details {
-    background-color: var(--card-bg);
-    border-radius: 8px;
-    padding: 1.5rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-.detail-label {
-    font-weight: 600;
-    color: var(--text-color);
-    min-width: 140px;
-    text-align: right;
-    padding-right: 1rem;
-}
-
-.detail-value {
-    color: var(--text-color);
-    flex-grow: 1;
-}
-
 
 .detail-item {
-    display: flex;
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid #e9ecef;
+  display: flex;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e9ecef;
 }
 
 .detail-item:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
-.object-fit-cover {
-    object-fit: cover;
+.detail-label {
+  font-weight: 600;
+  color: var(--text-color);
+  min-width: 140px;
+  text-align: right;
+  padding-right: 1rem;
 }
 
+.detail-value {
+  color: var(--text-color);
+  flex-grow: 1;
+}
+
+/* ================== COMPONENTS: Forms ================== */
 .form-check-label {
   cursor: pointer;
   user-select: none;
@@ -104,42 +128,21 @@ body.dark-mode .form-check-label {
   cursor: pointer;
 }
 
-.user-card {
-    background-color: var(--card-bg);
-    border: none;
-    border-radius: 1rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.user-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
-}
-
+/* ================== COMPONENTS: Card Text ================== */
 .user-card-text {
-    color: var(--text-color);
+  color: var(--text-color);
 }
 
 .user-card-text h5,
 .user-card-text p,
 .user-card-text small,
 .user-card-text i {
-    color: var(--text-color);
-    transition: color 0.3s ease;
+  color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
+/* ================== OTHERS ================== */
 #easter-egg-text:hover {
-  content: "";
   color: #6c63ff;
   cursor: pointer;
-}
-
-#gmail-button{
-    color: white;
-    background-color: #D62D20;
-}
-
-#gmail-button:hover {
-    background-color: #7e0b0bcc;
 }
