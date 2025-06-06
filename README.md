@@ -9,9 +9,11 @@ Este projeto é uma aplicação Laravel que consome uma API externa para listar 
 - Listagem de usuários com foto, nome, email e localização
 - Filtro por país e campo de busca por nome/email
 - Página de detalhes do usuário com informações completas
-- Recarregamento de novos usuários via botão
+- Redirecionamentos rápidos para Whatsapp e Email
+- Recarregamento de novos usuários via botão, com armazenamento em Sessão
 - Estilização com Bootstrap 5 e Bootstrap Icons
 - Views desacopladas com uso de `@include`
+- Proteção contra erros
 
 ---
 
@@ -55,10 +57,11 @@ docker exec -it app composer install
 docker exec -it app php artisan key:generate
 ```
 
-6. Acesse a aplicação:
+6. Acesse a aplicação na porta configurada:
+Ex:
 
 ```
-http://localhost:8000
+http://localhost:8088
 ```
 
 ---
